@@ -4,6 +4,7 @@ import { UserLoginData } from '../interfaces/dto/user-login-data';
 import { UserRegisterData } from '../interfaces/dto/user-register-data';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable, Subject} from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -30,13 +31,13 @@ export class UserService{
       return this.tokenSubject.asObservable()
     }
 
-  url: string = 'http://localhost:3000/api/users'  
+  private apiURLUsers: string = environment.apiURLFilms  
   
   login(data: UserLoginData){
-    return this.http.post(`${this.url}/login`, data)
+    return this.http.post(`${this.apiURLUsers}/login`, data)
   }
   register(data: UserRegisterData){
-    return this.http.post(`${this.url}/signup`, data)
+    return this.http.post(`${this.apiURLUsers}/signup`, data)
   }
   setTokenSetRole(token: string, role: string){
     this.cookies.set('token', token),
@@ -52,10 +53,10 @@ export class UserService{
   }
 
   findAllUsers(){
-    return (this.http.get(`${this.url}?token=${this.cookies.get('token')}`));
+    return (this.http.get(`${this.apiURLUsers}?token=${this.cookies.get('token')}`));
   }
 
   deleteUser(id:string){
-    return this.http.delete(`${this.url}/${id}?token=${this.cookies.get('token')}`)
+    return this.http.delete(`${this.apiURLUsers}/${id}?token=${this.cookies.get('token')}`)
   }
 }

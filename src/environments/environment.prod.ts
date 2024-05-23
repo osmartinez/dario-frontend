@@ -1,4 +1,5 @@
 export const environment = {
     production: true,
-    apiURL: 'https://paradise-films-backend.vercel.app/'
+    apiURLFilms:'http://localhost:3000/api/films',
+    apiURLUsers:'http://localhost:3000/api/users'
 };
