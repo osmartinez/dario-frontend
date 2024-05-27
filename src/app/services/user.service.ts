@@ -10,6 +10,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class UserService{
+  private apiURL: string = 'https://paradise-films-backend.vercel.app';
 
   private roleSubject: Subject<string> = new Subject<string>()
   private tokenSubject: Subject<string> = new Subject<string>()
@@ -31,7 +32,7 @@ export class UserService{
       return this.tokenSubject.asObservable()
     }
 
-  private apiURL: string = environment.apiURL  
+    
   
   login(data: UserLoginData){
     return this.http.post(`${this.apiURL}/api/users/login`, data)

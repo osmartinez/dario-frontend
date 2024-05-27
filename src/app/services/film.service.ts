@@ -8,14 +8,13 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class FilmService {
-
+  private apiURL: string = 'https://paradise-films-backend.vercel.app';
 
   constructor(
     private http: HttpClient,
     private cookies: CookieService
   ) { }
 
-  private apiURL: string = environment.apiURL;
   
 
   findAll(){
