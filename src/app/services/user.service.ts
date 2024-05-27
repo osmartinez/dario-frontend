@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class UserService{
-  private apiURL: string = 'https://paradise-films-backend.vercel.app';
+  private URL_API=environment.URL_API;
 
   private roleSubject: Subject<string> = new Subject<string>()
   private tokenSubject: Subject<string> = new Subject<string>()
@@ -35,10 +35,10 @@ export class UserService{
     
   
   login(data: UserLoginData){
-    return this.http.post(`${this.apiURL}/api/users/login`, data)
+    return this.http.post(`${this.URL_API}/api/users/login`, data)
   }
   register(data: UserRegisterData){
-    return this.http.post(`${this.apiURL}/api/users/signup`, data)
+    return this.http.post(`${this.URL_API}/api/users/signup`, data)
   }
   setTokenSetRole(token: string, role: string){
     this.cookies.set('token', token),
@@ -54,10 +54,10 @@ export class UserService{
   }
 
   findAllUsers(){
-    return (this.http.get(`${this.apiURL}/api/users?token=${this.cookies.get('token')}`));
+    return (this.http.get(`${this.URL_API}/api/users?token=${this.cookies.get('token')}`));
   }
 
   deleteUser(id:string){
-    return this.http.delete(`${this.apiURL}/api/users/${id}?token=${this.cookies.get('token')}`)
+    return this.http.delete(`${this.URL_API}/api/users/${id}?token=${this.cookies.get('token')}`)
   }
 }
