@@ -15,22 +15,22 @@ export class FilmService {
     private cookies: CookieService
   ) { }
 
-  private apiURLFilms: string = environment.apiURLFilms;
+  private apiURL: string = environment.apiURL;
   
 
   findAll(){
-    return this.http.get(`${this.apiURLFilms}?token=${this.cookies.get('token')}`)
+    return this.http.get(`${this.apiURL}/API/films?token=${this.cookies.get('token')}`)
   }
 
   findById(id:string){
-    return this.http.get(`${this.apiURLFilms}/${id}?token=${this.cookies.get('token')}`)
+    return this.http.get(`${this.apiURL}/API/films/${id}?token=${this.cookies.get('token')}`)
   }
 
   insert(data: FilmCreateData){
-    return this.http.post(`${this.apiURLFilms}?token=${this.cookies.get('token')}`, data)
+    return this.http.post(`${this.apiURL}/API/films?token=${this.cookies.get('token')}`, data)
   }
 
   deleteOne(id: string){
-    return this.http.delete(`${this.apiURLFilms}/${id}?token=${this.cookies.get('token')}`)
+    return this.http.delete(`${this.apiURL}/API/films/${id}?token=${this.cookies.get('token')}`)
   }
 }

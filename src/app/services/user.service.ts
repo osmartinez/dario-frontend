@@ -31,13 +31,13 @@ export class UserService{
       return this.tokenSubject.asObservable()
     }
 
-  private apiURLUsers: string = environment.apiURLFilms  
+  private apiURL: string = environment.apiURL  
   
   login(data: UserLoginData){
-    return this.http.post(`${this.apiURLUsers}/login`, data)
+    return this.http.post(`${this.apiURL}/API/users/login`, data)
   }
   register(data: UserRegisterData){
-    return this.http.post(`${this.apiURLUsers}/signup`, data)
+    return this.http.post(`${this.apiURL}/API/users/signup`, data)
   }
   setTokenSetRole(token: string, role: string){
     this.cookies.set('token', token),
@@ -53,10 +53,10 @@ export class UserService{
   }
 
   findAllUsers(){
-    return (this.http.get(`${this.apiURLUsers}?token=${this.cookies.get('token')}`));
+    return (this.http.get(`${this.apiURL}/API/users?token=${this.cookies.get('token')}`));
   }
 
   deleteUser(id:string){
-    return this.http.delete(`${this.apiURLUsers}/${id}?token=${this.cookies.get('token')}`)
+    return this.http.delete(`${this.apiURL}/API/users/${id}?token=${this.cookies.get('token')}`)
   }
 }
