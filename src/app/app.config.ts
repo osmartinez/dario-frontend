@@ -6,5 +6,5 @@ import { provideHttpClient} from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes, withViewTransitions()), provideClientHydration(), provideHttpClient(), CookieService]
+  providers: [provideRouter(routes, withViewTransitions()), provideHttpClient(), CookieService]
 };
