@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class UserService{
-  private URL_API=environment.URL_API;
+  URL_API=import.meta.env.NG_APP_API_URL_LOCAL || import.meta.env.NG_APP_API_URL_VERCEL;
 
   private roleSubject: Subject<string> = new Subject<string>()
   private tokenSubject: Subject<string> = new Subject<string>()
