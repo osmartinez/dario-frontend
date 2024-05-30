@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class FilmService {
-  URL_API=import.meta.env.NG_APP_API_URL_LOCAL || import.meta.env.NG_APP_API_URL_VERCEL;
+  URL_API: string =/* import.meta.env.NG_APP_API_URL_LOCAL || */ import.meta.env.NG_APP_API_URL_VERCEL;
 
   constructor(
     private http: HttpClient,
