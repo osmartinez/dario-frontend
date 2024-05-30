@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class UserService{
-  URL_API: string =/* import.meta.env.NG_APP_API_URL_LOCAL || */ import.meta.env.NG_APP_API_URL_VERCEL;
+  URL_API: string = 'https://paradise-films-backend.vercel.app' || 'http://localhost:3000';
 
   private roleSubject: Subject<string> = new Subject<string>()
   private tokenSubject: Subject<string> = new Subject<string>()
