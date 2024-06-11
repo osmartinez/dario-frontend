@@ -5,31 +5,35 @@ import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FilmService {
-  URL_API: string = "https://paradise-films-frontend-angular-js.vercel.app" || 'http://localhost:3000';
+  URL_API: string = 'https://dario-backend.vercel.app';
 
-  constructor(
-    private http: HttpClient,
-    private cookies: CookieService
-  ) { }
+  constructor(private http: HttpClient, private cookies: CookieService) {}
 
-  
-
-  findAll(){
-    return this.http.get(`${this.URL_API}/api/films?token=${this.cookies.get('token')}`)
+  findAll() {
+    return this.http.get(
+      `${this.URL_API}/api/films?token=${this.cookies.get('token')}`
+    );
   }
 
-  findById(id:string){
-    return this.http.get(`${this.URL_API}/api/films/${id}?token=${this.cookies.get('token')}`)
+  findById(id: string) {
+    return this.http.get(
+      `${this.URL_API}/api/films/${id}?token=${this.cookies.get('token')}`
+    );
   }
 
-  insert(data: FilmCreateData){
-    return this.http.post(`${this.URL_API}/api/films?token=${this.cookies.get('token')}`, data)
+  insert(data: FilmCreateData) {
+    return this.http.post(
+      `${this.URL_API}/api/films?token=${this.cookies.get('token')}`,
+      data
+    );
   }
 
-  deleteOne(id: string){
-    return this.http.delete(`${this.URL_API}/api/films/${id}?token=${this.cookies.get('token')}`)
+  deleteOne(id: string) {
+    return this.http.delete(
+      `${this.URL_API}/api/films/${id}?token=${this.cookies.get('token')}`
+    );
   }
 }
