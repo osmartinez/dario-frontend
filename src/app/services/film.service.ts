@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class FilmService {
-  URL_API: string = 'https://dario-backend.vercel.app';
+  URL_API: string = 'https://paradise-films-backend.vercel.app';
 
   constructor(private http: HttpClient, private cookies: CookieService) {}
 
